@@ -31,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SERVICE_PAT }}  # Use the PAT_TOKEN secret
         with:
           tag_name: v1.0.0
-          name: Release v1.0.0
+          release_name: Release v1.0.0
           body: |
             This is the first release of my Node.js project.
 
