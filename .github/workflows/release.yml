@@ -38,4 +38,4 @@ jobs:
             This is the first release of my Node.js project.
 
       - name: Get Release URL
-        run: echo "Release created: ${{ steps.create_release.outputs.upload_url }}"
+        run: echo " ${{ steps.create_release.outputs.upload_url }}"
