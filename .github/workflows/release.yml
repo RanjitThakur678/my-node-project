@@ -37,7 +37,7 @@ jobs:
           
       - name: Get tag name from ref
         shell: bash
-        run: echo "tag=${{ GITHUB_REF }}" >> $GITHUB_OUTPUT
+        run: echo "tag=${{ github.ref }}" >> $GITHUB_OUTPUT
         id: get_tag
 
       - name: Create tag in public repository
