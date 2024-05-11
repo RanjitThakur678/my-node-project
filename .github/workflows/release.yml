@@ -32,20 +32,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SERVICE_PAT }}  # Use the PAT_TOKEN secret
         with:
-          tag_name: v1.0.0
-          release_name: Release v1.0.0
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: |
             This is the first release of my Node.js project.
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.SERVICE_PAT }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./my-node-project-1.0.0.tgz  # Update with correct file path
-          asset_name: my-node-project-1.0.0.tgz    # Update with correct file name
-          asset_content_type: application/x-gzip
+
+      # - name: Upload Release Asset
+      #   id: upload-release-asset
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.SERVICE_PAT }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./my-node-project-1.0.0.tgz  # Update with correct file path
+      #     asset_name: my-node-project-1.0.0.tgz    # Update with correct file name
+      #     asset_content_type: application/x-gzip
 
       # - name: Upload Release Asset
       #   id: upload-release-asset
