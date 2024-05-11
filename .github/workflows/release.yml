@@ -1,6 +1,7 @@
 name: Release Workflow
 
 on:
+  workflow_dispatch:
   push:
     # tags:
     #   - 'v*'
@@ -52,8 +53,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SERVICE_PAT }}  # Use the PAT_TOKEN secret
         with:
-          tag_name: "${{ github.run_number }}+1"
-          release_name: "Release ${{ github.run_number }}+1"
+          tag_name: "${{ github.run_number }}"
+          release_name: "Release ${{ github.run_number }}"
           body: |
             This is the first release of my Node.js project.
 
