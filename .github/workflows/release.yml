@@ -37,7 +37,7 @@ jobs:
       - name: Archive Site Content
         uses: thedoctor0/zip-release@main
         with: 
-          filename: site-zip
+          filename: site.zip
           
       - name: Create GitHub Release
         id: create_release
@@ -57,8 +57,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SERVICE_PAT }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./my-node-project-1.0.0.tgz  # Update with correct file path
-          asset_name: my-node-project-1.0.0.tgz    # Update with correct file name
-          asset_content_type: application/x-gzip
+          asset_path: ./site.zip # Update with correct file path
+          asset_name: site-v${{ github.run_number }}    # Update with correct file name
+          asset_content_type: application/zip
 
 
