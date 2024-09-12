@@ -20,7 +20,9 @@ jobs:
       run: npm install
 
     - name: Build project
-      run: npm run build  # Adjust this command if needed
+      run: |
+        npm install
+        npm pack             # Adjust this command if needed
 
     - name: Create ZIP archive
       run: |
