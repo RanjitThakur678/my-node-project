@@ -24,13 +24,13 @@ jobs:
         name: node-project-archive
         path: release
 
-    - name: Unzip release artifact
-      run: unzip release/release.zip -d /var/www/dist
+    # - name: Unzip release artifact
+    #   run: unzip release/release.zip -d /var/www/dist
 
-    - name: Install dependencies
-      run: |
-        cd /var/www/dist
-        npm install --production
+    # - name: Install dependencies
+    #   run: |
+    #     cd /var/www/dist
+    #     npm install --production
 
     - name: Deploy application
       run: |
