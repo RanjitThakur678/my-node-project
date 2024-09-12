@@ -9,9 +9,9 @@ on:
 jobs:
   archive-and-release:
     uses: ./.github/workflows/archive-release.yml
-    with:
-      # Pass any inputs if your reusable workflow expects them
-    secrets: inherit
+    # with:
+    #   # Pass any inputs if your reusable workflow expects them
+    # secrets: inherit
 
   deploy:
     runs-on: ubuntu-latest
