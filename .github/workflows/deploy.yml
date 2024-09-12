@@ -1,14 +1,14 @@
 name: Deploy
 
 on:
-
+  workflow_dispatch:
   push:
     tags:
       - 'v*.*.*'
 
 jobs:
   archive-and-release:
-    uses: .github/workflows/archive-and-release@main
+    uses: .github/workflows/archive-and-release.yml
     with:
       # Pass any inputs if your reusable workflow expects them
     secrets: inherit
