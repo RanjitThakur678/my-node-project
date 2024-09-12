@@ -1,0 +1,34 @@
+name: Archive and Release
+
+on:
+  workflow_call:
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # Specify your Node.js version here
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build  # Adjust this command if needed
+
+    - name: Create ZIP archive
+      run: |
+        mkdir -p release
+        zip -r release/release.zip . -x 'node_modules/*' -x '.git/*' -x 'release/*' -x 'tests/*'  # Exclude unnecessary files
+
+    - name: Upload release ZIP as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: node-project-archive
+        path: release/release.zip
