@@ -1,0 +1,33 @@
+name: Archive and Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install zip
+      run: sudo apt-get install zip
+
+    - name: Create ZIP archive
+      run: |
+        mkdir -p release
+        zip -r release/release.zip . -x '*.git*'
+
+    - name: Upload release ZIP as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: release-archive
+        path: release/release.zip
