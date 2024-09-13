@@ -29,6 +29,17 @@ jobs:
         mkdir -p release
         zip -r release/release.zip . -x '*.git*'
 
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.SERVICE_PAT }}  # Use the PAT_TOKEN secret
+      with:
+          tag_name: "v1.0.${{ github.run_number }}"
+          release_name: "Release v1.0.${{ github.run_number }}"
+          body: |
+            This is python release version "Release v1.0.${{ github.run_number }}"  project.
+
     - name: Upload release ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
