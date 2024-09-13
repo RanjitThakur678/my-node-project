@@ -1,4 +1,4 @@
-name: Archive and Release
+name: Python Release
 
 on:
   push:
