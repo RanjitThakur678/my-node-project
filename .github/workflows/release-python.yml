@@ -38,7 +38,7 @@ jobs:
           tag_name: "v1.0.${{ github.run_number }}"
           release_name: "Release v1.0.${{ github.run_number }}"
           body: |
-            This is python release version "Release v1.0.${{ github.run_number }}"  project.
+            This is python release version "Release v1.0.${{ github.run_number }}" project.
 
     # - name: Upload Release Asset
     #   id: upload-release-asset
