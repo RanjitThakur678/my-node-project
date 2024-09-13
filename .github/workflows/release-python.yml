@@ -1,9 +1,12 @@
-name: Archive and Releases
+name:  Python Release
 
 on:
   push:
     tags:
       - 'v*.*.*'
+    branches:
+      - release
+  
 
 jobs:
   archive:
