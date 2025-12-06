@@ -30,7 +30,7 @@ jobs:
         zip -r release/release.zip . -x 'node_modules/*' -x '.git/*' -x 'release/*' -x 'tests/*'  # Exclude unnecessary files
 
     - name: Upload release ZIP as artifact
-      uses: upload-artifact@v4.5.0
+      uses: actions/upload-artifact@v4.5.0
       with:
         name: node-project-archive
         path: release/release.zip
