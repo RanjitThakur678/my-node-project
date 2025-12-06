@@ -27,7 +27,7 @@ jobs:
         zip -r release/release.zip . -x '*.git*'
 
     - name: Upload release ZIP as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.5.0
       with:
         name: release-archive
         path: release/release.zip
